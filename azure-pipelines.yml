@@ -1,6 +1,10 @@
 stages:
 - stage: 'Build'
-  pool: GithubCodespace
+  pool: 
+   name: GithubCodespace
+   demands:
+     - GITHUB_USER -equals davidjbeaver
+     - HOSTNAME -equals silver-memory-6wrj5qrxvwfxqq4
   displayName: 'Build the web application'
   jobs: 
   - job: 'Build'
@@ -61,7 +65,11 @@ stages:
       artifact: drop
 
 - stage: 'Deploy'
-  pool: GithubCodespace
+  pool: 
+   name: GithubCodespace
+   demands:
+     - GITHUB_USER -equals davidjbeaver
+     - HOSTNAME -equals silver-memory-6wrj5qrxvwfxqq4
   displayName: 'Deploy the web application'
   dependsOn: Build
   jobs:
