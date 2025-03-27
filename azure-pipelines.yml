@@ -9,10 +9,11 @@ stages:
   jobs: 
   - job: 'Build'
     displayName: 'Build job'
-    pool:
-      vmImage: 'ubuntu-20.04'
-      demands:
-      - npm
+    #pool:
+    #  vmImage: 'ubuntu-20.04'
+    #  demands:
+    #  - npm
+    pool: GithubCodespace
 
     variables:
       wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
