@@ -1,5 +1,6 @@
 stages:
 - stage: 'Build'
+  pool: GithubCodespace
   displayName: 'Build the web application'
   jobs: 
   - job: 'Build'
@@ -60,6 +61,7 @@ stages:
       artifact: drop
 
 - stage: 'Deploy'
+  pool: GithubCodespace
   displayName: 'Deploy the web application'
   dependsOn: Build
   jobs:
